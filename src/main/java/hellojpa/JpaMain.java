@@ -30,12 +30,16 @@ public class JpaMain {
             System.out.println("findMember.id =" + findMember.getId());
             System.out.println("findMember.name =" + findMember.getName());*/
 
-        Member member = em.find(Member.class,150L);
-        member.setName("ZZZZZ");
+       /* Member member = em.find(Member.class,150L);
+        member.setName("ZZZZZ");*/
 
-        System.out.println("==================");
+       Member member = new Member(200L,"member200");
+       em.persist(member);
+       em.flush();
 
-            tx.commit();
+       System.out.println("==================");
+
+        tx.commit();
         }catch(Exception e){
             tx.rollback();
         }
